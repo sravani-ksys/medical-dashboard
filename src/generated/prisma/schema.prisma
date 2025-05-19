@@ -1,0 +1,99 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
+// Looking for ways to speed up your queries, or scale easily with your serverless or edge functions?
+// Try Prisma Accelerate: https://pris.ly/cli/accelerate-init
+
+generator client {
+  provider = "prisma-client-js"
+  output   = "../src/generated/prisma"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Patient {
+  id          String   @id @default(uuid())
+  firstName   String
+  lastName    String
+  dateOfBirth DateTime
+  age         Int
+  gender      Gender
+  phone       String
+  email       String   @unique
+  address     String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  visitations  Visitation[]
+  appointments Appointment[]
+}
+
+model Doctor {
+  id             String   @id @default(uuid())
+  firstName      String
+  lastName       String
+  specialization String
+  email          String   @unique
+  phone          String
+  createdAt      DateTime @default(now())
+
+  appointments Appointment[]
+  visitations  Visitation[]
+}
+
+model Appointment {
+  id          String            @id @default(uuid())
+  patientId   String
+  doctorId    String
+  scheduledAt DateTime
+  status      AppointmentStatus @default(SCHEDULED)
+  reason      String?
+
+  patient Patient @relation(fields: [patientId], references: [id])
+  doctor  Doctor  @relation(fields: [doctorId], references: [id])
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Visitation {
+  id           String    @id @default(uuid())
+  patientId    String
+  doctorId     String
+  visitedAt    DateTime
+  diagnosis    String?
+  prescription String?
+  followUpDate DateTime?
+
+  patient Patient @relation(fields: [patientId], references: [id])
+  doctor  Doctor  @relation(fields: [doctorId], references: [id])
+  notes   Note[]
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+}
+
+model Note {
+  id           String   @id @default(uuid())
+  visitationId String
+  content      String
+  uploadedAt   DateTime @default(now())
+
+  visitation Visitation @relation(fields: [visitationId], references: [id])
+}
+
+enum Gender {
+  MALE
+  FEMALE
+  OTHER
+}
+
+enum AppointmentStatus {
+  SCHEDULED
+  COMPLETED
+  CANCELLED
+  NO_SHOW
+}
