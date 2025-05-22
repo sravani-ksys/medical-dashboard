@@ -3,23 +3,18 @@ import { prisma } from '../../lib/prisma'; // Adjust path if needed
 
 export default async function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
-    const patients = await prisma.patient.findMany({
+    const doctors = await prisma.doctor.findMany({
       orderBy: { createdAt: 'desc' },
       select: {
         id: true,
         firstName: true,
         lastName: true,
-        dateOfBirth: true,
-        age: true,
-        gender: true,
-        phone: true,
-        email: true,
       },
     });
 
-    res.status(200).json(patients || []);
+    res.status(200).json(doctors || []);
   } catch (error) {
-    console.error('Failed to fetch patients:', error);
+    console.error('Failed to fetch doctors:', error);
     res.status(500).json({ message: 'Internal server error' });
   }
 }

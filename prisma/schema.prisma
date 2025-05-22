@@ -22,7 +22,7 @@ model Patient {
   age             Int
   gender          Gender
   phone           String
-  email           String          @unique
+  email           String?         
   address         String?
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
@@ -67,16 +67,17 @@ model Visitation {
   diagnosis       String?
   prescription    String?
   followUpDate    DateTime?
+  notes           String?
 
   patient         Patient         @relation(fields: [patientId], references: [id])
   doctor          Doctor          @relation(fields: [doctorId], references: [id])
-  notes           Note[]
+  report          Report[]
 
   createdAt       DateTime        @default(now())
   updatedAt       DateTime        @updatedAt
 }
 
-model Note {
+model Report {
   id              String          @id @default(uuid())
   visitationId    String
   content         String

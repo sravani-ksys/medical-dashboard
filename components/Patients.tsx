@@ -1,5 +1,7 @@
 import { useRouter } from 'next/router';
-import { useEffect, useState, useRef } from 'react';
+import { useEffect, useState, useRef, useMemo } from 'react';
+import Sidebar from './Sidebar';
+import { useActiveTab } from '../utils/getActiveTab';
 
 interface Patient {
   id: string;
@@ -69,9 +71,10 @@ export default function Patients() {
       const response = await fetch('/api/addPatient', {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
-        body: JSON.stringify({ ...formData, 
+        body: JSON.stringify({
+          ...formData,
           age: Number(formData.age),
-          dateOfBirth: new Date(formData.dateOfBirth).toISOString(), 
+          dateOfBirth: new Date(formData.dateOfBirth).toISOString(),
         }),
       });
       if (response.ok) {
@@ -86,123 +89,143 @@ export default function Patients() {
     }
   };
 
+  const activeTab = useActiveTab();
+
   return (
-    <div className="p-4">
-      <div className="flex justify-between items-center mb-4">
-        <h2 className="text-2xl font-semibold">Patient List</h2>
-        <button
-          onClick={() => setShowModal(true)}
-          className="bg-blue-500 text-white px-4 py-2 rounded-full"
-        >
-          Add Patient
-        </button>
-      </div>
-
-      {loading ? (
-        <p>Loading patients...</p>
-      ) : patients.length === 0 ? (
-        <p className="text-gray-600">No patients found. Add a new patient to get started.</p>
-      ) : (
-        <ul className="mt-4 space-y-2">
-          {patients.map((patient) => (
-            <li
-              key={patient.id}
-              onClick={() => router.push(`/patient/${patient.id}`)} // ✅ Redirect to PatientRecord
-              className="p-3 border rounded shadow-sm hover:shadow-md transition cursor-pointer"
+    <div className="flex h-screen">
+      <Sidebar activeTab={activeTab} />
+      <main className="flex-1 p-6 bg-gray-50">
+        <div className="p-4">
+          <div className="flex justify-between items-center mb-4">
+            <h2 className="text-2xl font-semibold">Patient List</h2>
+            <button
+              onClick={() => setShowModal(true)}
+              className="bg-blue-500 text-white px-4 py-2 rounded-full"
             >
-              <div className="font-medium">
-                {patient.firstName} {patient.lastName}
-              </div>
-              <div className="text-sm text-gray-600">
-                Age: {patient.age}, Gender: {patient.gender}
-              </div>
-              <div className="text-sm text-gray-600">Contact: {patient.phone}</div>
-            </li>
-          ))}
-        </ul>
-      )}
-
-      {showModal && (
-        <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
-          <div ref={modalRef} className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
-            <h3 className="text-xl font-semibold mb-4">Add New Patient</h3>
-            <div className="space-y-3">
-              <input
-                type="text"
-                name="firstName"
-                placeholder="First Name"
-                value={formData.firstName}
-                onChange={handleInputChange}
-                className="w-full border px-3 py-2 rounded"
-              />
-              <input
-                type="text"
-                name="lastName"
-                placeholder="Last Name"
-                value={formData.lastName}
-                onChange={handleInputChange}
-                className="w-full border px-3 py-2 rounded"
-              />
-              <input
-                type="date"
-                name="dateOfBirth"
-                value={formData.dateOfBirth}
-                onChange={handleInputChange}
-                className="w-full border px-3 py-2 rounded"
-              />
-              <input
-                type="number"
-                name="age"
-                placeholder="Age"
-                value={formData.age}
-                onChange={handleInputChange}
-                className="w-full border px-3 py-2 rounded"
-              />
-              <select
-                name="gender"
-                value={formData.gender}
-                onChange={handleInputChange}
-                className="w-full border px-3 py-2 rounded"
-              >
-                <option value="">Select Gender</option>
-                <option value="MALE">Male</option>
-                <option value="FEMALE">Female</option>
-                <option value="OTHER">Other</option>
-              </select>
-              <input
-                type="text"
-                name="phone"
-                placeholder="Phone"
-                value={formData.phone}
-                onChange={handleInputChange}
-                className="w-full border px-3 py-2 rounded"
-              />
-              <input
-                type="text"
-                name="email"
-                placeholder="Email"
-                value={formData.email}
-                onChange={handleInputChange}
-                className="w-full border px-3 py-2 rounded"
-              />
-            </div>
-            <div className="flex justify-end mt-6 space-x-2">
-              <button
-                onClick={() => setShowModal(false)}
-                className="px-4 py-2 border rounded text-gray-700"
-              >
-                Cancel
-              </button>
-              <button
-                onClick={handleAddPatient}
-                className="px-4 py-2 bg-blue-500 text-white rounded"
-              >
-                Add
-              </button>
-            </div>
+              Add Patient
+            </button>
           </div>
+
+          {loading ? (
+            <p>Loading patients...</p>
+          ) : patients.length === 0 ? (
+            <p className="text-gray-600">No patients found. Add a new patient to get started.</p>
+          ) : (
+            <ul className="mt-4 space-y-2">
+              {patients.map((patient) => (
+                <li
+                  key={patient.id}
+                  onClick={() => router.push(`/patient/${patient.id}`)} // ✅ Redirect to PatientRecord
+                  className="p-3 border rounded shadow-sm hover:shadow-md transition cursor-pointer"
+                >
+                  <div className="font-medium">
+                    {patient.firstName} {patient.lastName}
+                  </div>
+                  <div className="text-sm text-gray-600">
+                    Age: {patient.age}, Gender: {patient.gender}
+                  </div>
+                  <div className="text-sm text-gray-600">Contact: {patient.phone}</div>
+                </li>
+              ))}
+            </ul>
+          )}
+
+          {showModal && (
+            <div className="fixed inset-0 bg-black bg-opacity-40 flex items-center justify-center z-50">
+              <div ref={modalRef} className="bg-white p-6 rounded-lg w-full max-w-md shadow-lg">
+                <h3 className="text-xl font-semibold mb-4">Add New Patient</h3>
+                <div className="space-y-3">
+                  <input
+                    type="text"
+                    name="firstName"
+                    placeholder="First Name"
+                    value={formData.firstName}
+                    onChange={handleInputChange}
+                    className="w-full border px-3 py-2 rounded"
+                  />
+                  <input
+                    type="text"
+                    name="lastName"
+                    placeholder="Last Name"
+                    value={formData.lastName}
+                    onChange={handleInputChange}
+                    className="w-full border px-3 py-2 rounded"
+                  />
+                  <input
+                    type="date"
+                    name="dateOfBirth"
+                    value={formData.dateOfBirth}
+                    onChange={handleInputChange}
+                    className="w-full border px-3 py-2 rounded"
+                  />
+                 <input
+                    type="number"
+                    name="age"
+                    placeholder="Age"
+                    value={formData.age}
+                    onChange={(e) => {
+                      const value = e.target.value;
+                      if (/^[1-9]\d*$/.test(value) || value === '') {
+                        setFormData((prev) => ({ ...prev, age: value }));
+                      }
+                    }}
+                    onBlur={(e) => {
+                      if (!formData.age || Number(formData.age) < 1) {
+                        setFormData((prev) => ({ ...prev, age: '1' }));
+                      }
+                    }}
+                    min="1"
+                    required
+                    inputMode="numeric"
+                    className="w-full border px-3 py-2 rounded"
+                  />
+                  <select
+                    name="gender"
+                    value={formData.gender}
+                    onChange={handleInputChange}
+                    className="w-full border px-3 py-2 rounded"
+                  >
+                    <option value="">Select Gender</option>
+                    <option value="MALE">Male</option>
+                    <option value="FEMALE">Female</option>
+                    <option value="OTHER">Other</option>
+                  </select>
+                  <input
+                    type="text"
+                    name="phone"
+                    placeholder="Phone"
+                    value={formData.phone}
+                    onChange={handleInputChange}
+                    className="w-full border px-3 py-2 rounded"
+                  />
+                  <input
+                    type="text"
+                    name="email"
+                    placeholder="Email"
+                    value={formData.email}
+                    onChange={handleInputChange}
+                    className="w-full border px-3 py-2 rounded"
+                  />
+                </div>
+                <div className="flex justify-end mt-6 space-x-2">
+                  <button
+                    onClick={() => setShowModal(false)}
+                    className="px-4 py-2 border rounded text-gray-700"
+                  >
+                    Cancel
+                  </button>
+                  <button
+                    onClick={handleAddPatient}
+                    className="px-4 py-2 bg-blue-500 text-white rounded"
+                  >
+                    Add
+                  </button>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
-      )}
+      </main>
     </div>
   );
 }

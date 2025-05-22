@@ -163,11 +163,12 @@ exports.Prisma.VisitationScalarFieldEnum = {
   diagnosis: 'diagnosis',
   prescription: 'prescription',
   followUpDate: 'followUpDate',
+  notes: 'notes',
   createdAt: 'createdAt',
   updatedAt: 'updatedAt'
 };
 
-exports.Prisma.NoteScalarFieldEnum = {
+exports.Prisma.ReportScalarFieldEnum = {
   id: 'id',
   visitationId: 'visitationId',
   content: 'content',
@@ -206,7 +207,7 @@ exports.Prisma.ModelName = {
   Doctor: 'Doctor',
   Appointment: 'Appointment',
   Visitation: 'Visitation',
-  Note: 'Note'
+  Report: 'Report'
 };
 
 /**

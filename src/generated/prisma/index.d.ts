@@ -34,10 +34,10 @@ export type Appointment = $Result.DefaultSelection<Prisma.$AppointmentPayload>
  */
 export type Visitation = $Result.DefaultSelection<Prisma.$VisitationPayload>
 /**
- * Model Note
+ * Model Report
  * 
  */
-export type Note = $Result.DefaultSelection<Prisma.$NotePayload>
+export type Report = $Result.DefaultSelection<Prisma.$ReportPayload>
 
 /**
  * Enums
@@ -237,14 +237,14 @@ export class PrismaClient<
   get visitation(): Prisma.VisitationDelegate<ExtArgs, ClientOptions>;
 
   /**
-   * `prisma.note`: Exposes CRUD operations for the **Note** model.
+   * `prisma.report`: Exposes CRUD operations for the **Report** model.
     * Example usage:
     * ```ts
-    * // Fetch zero or more Notes
-    * const notes = await prisma.note.findMany()
+    * // Fetch zero or more Reports
+    * const reports = await prisma.report.findMany()
     * ```
     */
-  get note(): Prisma.NoteDelegate<ExtArgs, ClientOptions>;
+  get report(): Prisma.ReportDelegate<ExtArgs, ClientOptions>;
 }
 
 export namespace Prisma {
@@ -689,7 +689,7 @@ export namespace Prisma {
     Doctor: 'Doctor',
     Appointment: 'Appointment',
     Visitation: 'Visitation',
-    Note: 'Note'
+    Report: 'Report'
   };
 
   export type ModelName = (typeof ModelName)[keyof typeof ModelName]
@@ -708,7 +708,7 @@ export namespace Prisma {
       omit: GlobalOmitOptions
     }
     meta: {
-      modelProps: "patient" | "doctor" | "appointment" | "visitation" | "note"
+      modelProps: "patient" | "doctor" | "appointment" | "visitation" | "report"
       txIsolationLevel: Prisma.TransactionIsolationLevel
     }
     model: {
@@ -1008,77 +1008,77 @@ export namespace Prisma {
           }
         }
       }
-      Note: {
-        payload: Prisma.$NotePayload<ExtArgs>
-        fields: Prisma.NoteFieldRefs
+      Report: {
+        payload: Prisma.$ReportPayload<ExtArgs>
+        fields: Prisma.ReportFieldRefs
         operations: {
           findUnique: {
-            args: Prisma.NoteFindUniqueArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload> | null
+            args: Prisma.ReportFindUniqueArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload> | null
           }
           findUniqueOrThrow: {
-            args: Prisma.NoteFindUniqueOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+            args: Prisma.ReportFindUniqueOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
           }
           findFirst: {
-            args: Prisma.NoteFindFirstArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload> | null
+            args: Prisma.ReportFindFirstArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload> | null
           }
           findFirstOrThrow: {
-            args: Prisma.NoteFindFirstOrThrowArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+            args: Prisma.ReportFindFirstOrThrowArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
           }
           findMany: {
-            args: Prisma.NoteFindManyArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>[]
+            args: Prisma.ReportFindManyArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>[]
           }
           create: {
-            args: Prisma.NoteCreateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+            args: Prisma.ReportCreateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
           }
           createMany: {
-            args: Prisma.NoteCreateManyArgs<ExtArgs>
+            args: Prisma.ReportCreateManyArgs<ExtArgs>
             result: BatchPayload
           }
           createManyAndReturn: {
-            args: Prisma.NoteCreateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>[]
+            args: Prisma.ReportCreateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>[]
           }
           delete: {
-            args: Prisma.NoteDeleteArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+            args: Prisma.ReportDeleteArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
           }
           update: {
-            args: Prisma.NoteUpdateArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+            args: Prisma.ReportUpdateArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
           }
           deleteMany: {
-            args: Prisma.NoteDeleteManyArgs<ExtArgs>
+            args: Prisma.ReportDeleteManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateMany: {
-            args: Prisma.NoteUpdateManyArgs<ExtArgs>
+            args: Prisma.ReportUpdateManyArgs<ExtArgs>
             result: BatchPayload
           }
           updateManyAndReturn: {
-            args: Prisma.NoteUpdateManyAndReturnArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>[]
+            args: Prisma.ReportUpdateManyAndReturnArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>[]
           }
           upsert: {
-            args: Prisma.NoteUpsertArgs<ExtArgs>
-            result: $Utils.PayloadToResult<Prisma.$NotePayload>
+            args: Prisma.ReportUpsertArgs<ExtArgs>
+            result: $Utils.PayloadToResult<Prisma.$ReportPayload>
           }
           aggregate: {
-            args: Prisma.NoteAggregateArgs<ExtArgs>
-            result: $Utils.Optional<AggregateNote>
+            args: Prisma.ReportAggregateArgs<ExtArgs>
+            result: $Utils.Optional<AggregateReport>
           }
           groupBy: {
-            args: Prisma.NoteGroupByArgs<ExtArgs>
-            result: $Utils.Optional<NoteGroupByOutputType>[]
+            args: Prisma.ReportGroupByArgs<ExtArgs>
+            result: $Utils.Optional<ReportGroupByOutputType>[]
           }
           count: {
-            args: Prisma.NoteCountArgs<ExtArgs>
-            result: $Utils.Optional<NoteCountAggregateOutputType> | number
+            args: Prisma.ReportCountArgs<ExtArgs>
+            result: $Utils.Optional<ReportCountAggregateOutputType> | number
           }
         }
       }
@@ -1170,7 +1170,7 @@ export namespace Prisma {
     doctor?: DoctorOmit
     appointment?: AppointmentOmit
     visitation?: VisitationOmit
-    note?: NoteOmit
+    report?: ReportOmit
   }
 
   /* Types for Logging */
@@ -1345,11 +1345,11 @@ export namespace Prisma {
    */
 
   export type VisitationCountOutputType = {
-    notes: number
+    report: number
   }
 
   export type VisitationCountOutputTypeSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    notes?: boolean | VisitationCountOutputTypeCountNotesArgs
+    report?: boolean | VisitationCountOutputTypeCountReportArgs
   }
 
   // Custom InputTypes
@@ -1366,8 +1366,8 @@ export namespace Prisma {
   /**
    * VisitationCountOutputType without action
    */
-  export type VisitationCountOutputTypeCountNotesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NoteWhereInput
+  export type VisitationCountOutputTypeCountReportArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReportWhereInput
   }
 
 
@@ -1584,7 +1584,7 @@ export namespace Prisma {
     age: number
     gender: $Enums.Gender
     phone: string
-    email: string
+    email: string | null
     address: string | null
     createdAt: Date
     updatedAt: Date
@@ -1691,7 +1691,7 @@ export namespace Prisma {
       age: number
       gender: $Enums.Gender
       phone: string
-      email: string
+      email: string | null
       address: string | null
       createdAt: Date
       updatedAt: Date
@@ -4832,6 +4832,7 @@ export namespace Prisma {
     diagnosis: string | null
     prescription: string | null
     followUpDate: Date | null
+    notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4844,6 +4845,7 @@ export namespace Prisma {
     diagnosis: string | null
     prescription: string | null
     followUpDate: Date | null
+    notes: string | null
     createdAt: Date | null
     updatedAt: Date | null
   }
@@ -4856,6 +4858,7 @@ export namespace Prisma {
     diagnosis: number
     prescription: number
     followUpDate: number
+    notes: number
     createdAt: number
     updatedAt: number
     _all: number
@@ -4870,6 +4873,7 @@ export namespace Prisma {
     diagnosis?: true
     prescription?: true
     followUpDate?: true
+    notes?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4882,6 +4886,7 @@ export namespace Prisma {
     diagnosis?: true
     prescription?: true
     followUpDate?: true
+    notes?: true
     createdAt?: true
     updatedAt?: true
   }
@@ -4894,6 +4899,7 @@ export namespace Prisma {
     diagnosis?: true
     prescription?: true
     followUpDate?: true
+    notes?: true
     createdAt?: true
     updatedAt?: true
     _all?: true
@@ -4979,6 +4985,7 @@ export namespace Prisma {
     diagnosis: string | null
     prescription: string | null
     followUpDate: Date | null
+    notes: string | null
     createdAt: Date
     updatedAt: Date
     _count: VisitationCountAggregateOutputType | null
@@ -5008,11 +5015,12 @@ export namespace Prisma {
     diagnosis?: boolean
     prescription?: boolean
     followUpDate?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     patient?: boolean | PatientDefaultArgs<ExtArgs>
     doctor?: boolean | DoctorDefaultArgs<ExtArgs>
-    notes?: boolean | Visitation$notesArgs<ExtArgs>
+    report?: boolean | Visitation$reportArgs<ExtArgs>
     _count?: boolean | VisitationCountOutputTypeDefaultArgs<ExtArgs>
   }, ExtArgs["result"]["visitation"]>
 
@@ -5024,6 +5032,7 @@ export namespace Prisma {
     diagnosis?: boolean
     prescription?: boolean
     followUpDate?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     patient?: boolean | PatientDefaultArgs<ExtArgs>
@@ -5038,6 +5047,7 @@ export namespace Prisma {
     diagnosis?: boolean
     prescription?: boolean
     followUpDate?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
     patient?: boolean | PatientDefaultArgs<ExtArgs>
@@ -5052,15 +5062,16 @@ export namespace Prisma {
     diagnosis?: boolean
     prescription?: boolean
     followUpDate?: boolean
+    notes?: boolean
     createdAt?: boolean
     updatedAt?: boolean
   }
 
-  export type VisitationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patientId" | "doctorId" | "visitedAt" | "diagnosis" | "prescription" | "followUpDate" | "createdAt" | "updatedAt", ExtArgs["result"]["visitation"]>
+  export type VisitationOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "patientId" | "doctorId" | "visitedAt" | "diagnosis" | "prescription" | "followUpDate" | "notes" | "createdAt" | "updatedAt", ExtArgs["result"]["visitation"]>
   export type VisitationInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     patient?: boolean | PatientDefaultArgs<ExtArgs>
     doctor?: boolean | DoctorDefaultArgs<ExtArgs>
-    notes?: boolean | Visitation$notesArgs<ExtArgs>
+    report?: boolean | Visitation$reportArgs<ExtArgs>
     _count?: boolean | VisitationCountOutputTypeDefaultArgs<ExtArgs>
   }
   export type VisitationIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
@@ -5077,7 +5088,7 @@ export namespace Prisma {
     objects: {
       patient: Prisma.$PatientPayload<ExtArgs>
       doctor: Prisma.$DoctorPayload<ExtArgs>
-      notes: Prisma.$NotePayload<ExtArgs>[]
+      report: Prisma.$ReportPayload<ExtArgs>[]
     }
     scalars: $Extensions.GetPayloadResult<{
       id: string
@@ -5087,6 +5098,7 @@ export namespace Prisma {
       diagnosis: string | null
       prescription: string | null
       followUpDate: Date | null
+      notes: string | null
       createdAt: Date
       updatedAt: Date
     }, ExtArgs["result"]["visitation"]>
@@ -5485,7 +5497,7 @@ export namespace Prisma {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     patient<T extends PatientDefaultArgs<ExtArgs> = {}>(args?: Subset<T, PatientDefaultArgs<ExtArgs>>): Prisma__PatientClient<$Result.GetResult<Prisma.$PatientPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     doctor<T extends DoctorDefaultArgs<ExtArgs> = {}>(args?: Subset<T, DoctorDefaultArgs<ExtArgs>>): Prisma__DoctorClient<$Result.GetResult<Prisma.$DoctorPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
-    notes<T extends Visitation$notesArgs<ExtArgs> = {}>(args?: Subset<T, Visitation$notesArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
+    report<T extends Visitation$reportArgs<ExtArgs> = {}>(args?: Subset<T, Visitation$reportArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions> | Null>
     /**
      * Attaches callbacks for the resolution and/or rejection of the Promise.
      * @param onfulfilled The callback to execute when the Promise is resolved.
@@ -5522,6 +5534,7 @@ export namespace Prisma {
     readonly diagnosis: FieldRef<"Visitation", 'String'>
     readonly prescription: FieldRef<"Visitation", 'String'>
     readonly followUpDate: FieldRef<"Visitation", 'DateTime'>
+    readonly notes: FieldRef<"Visitation", 'String'>
     readonly createdAt: FieldRef<"Visitation", 'DateTime'>
     readonly updatedAt: FieldRef<"Visitation", 'DateTime'>
   }
@@ -5920,27 +5933,27 @@ export namespace Prisma {
   }
 
   /**
-   * Visitation.notes
+   * Visitation.report
    */
-  export type Visitation$notesArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type Visitation$reportArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
-    where?: NoteWhereInput
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
-    cursor?: NoteWhereUniqueInput
+    include?: ReportInclude<ExtArgs> | null
+    where?: ReportWhereInput
+    orderBy?: ReportOrderByWithRelationInput | ReportOrderByWithRelationInput[]
+    cursor?: ReportWhereUniqueInput
     take?: number
     skip?: number
-    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+    distinct?: ReportScalarFieldEnum | ReportScalarFieldEnum[]
   }
 
   /**
@@ -5963,30 +5976,30 @@ export namespace Prisma {
 
 
   /**
-   * Model Note
+   * Model Report
    */
 
-  export type AggregateNote = {
-    _count: NoteCountAggregateOutputType | null
-    _min: NoteMinAggregateOutputType | null
-    _max: NoteMaxAggregateOutputType | null
+  export type AggregateReport = {
+    _count: ReportCountAggregateOutputType | null
+    _min: ReportMinAggregateOutputType | null
+    _max: ReportMaxAggregateOutputType | null
   }
 
-  export type NoteMinAggregateOutputType = {
+  export type ReportMinAggregateOutputType = {
     id: string | null
     visitationId: string | null
     content: string | null
     uploadedAt: Date | null
   }
 
-  export type NoteMaxAggregateOutputType = {
+  export type ReportMaxAggregateOutputType = {
     id: string | null
     visitationId: string | null
     content: string | null
     uploadedAt: Date | null
   }
 
-  export type NoteCountAggregateOutputType = {
+  export type ReportCountAggregateOutputType = {
     id: number
     visitationId: number
     content: number
@@ -5995,21 +6008,21 @@ export namespace Prisma {
   }
 
 
-  export type NoteMinAggregateInputType = {
+  export type ReportMinAggregateInputType = {
     id?: true
     visitationId?: true
     content?: true
     uploadedAt?: true
   }
 
-  export type NoteMaxAggregateInputType = {
+  export type ReportMaxAggregateInputType = {
     id?: true
     visitationId?: true
     content?: true
     uploadedAt?: true
   }
 
-  export type NoteCountAggregateInputType = {
+  export type ReportCountAggregateInputType = {
     id?: true
     visitationId?: true
     content?: true
@@ -6017,146 +6030,146 @@ export namespace Prisma {
     _all?: true
   }
 
-  export type NoteAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportAggregateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Note to aggregate.
+     * Filter which Report to aggregate.
      */
-    where?: NoteWhereInput
+    where?: ReportWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Notes to fetch.
+     * Determine the order of Reports to fetch.
      */
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    orderBy?: ReportOrderByWithRelationInput | ReportOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
      * Sets the start position
      */
-    cursor?: NoteWhereUniqueInput
+    cursor?: ReportWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Notes from the position of the cursor.
+     * Take `±n` Reports from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Notes.
+     * Skip the first `n` Reports.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
-     * Count returned Notes
+     * Count returned Reports
     **/
-    _count?: true | NoteCountAggregateInputType
+    _count?: true | ReportCountAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the minimum value
     **/
-    _min?: NoteMinAggregateInputType
+    _min?: ReportMinAggregateInputType
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/aggregations Aggregation Docs}
      * 
      * Select which fields to find the maximum value
     **/
-    _max?: NoteMaxAggregateInputType
+    _max?: ReportMaxAggregateInputType
   }
 
-  export type GetNoteAggregateType<T extends NoteAggregateArgs> = {
-        [P in keyof T & keyof AggregateNote]: P extends '_count' | 'count'
+  export type GetReportAggregateType<T extends ReportAggregateArgs> = {
+        [P in keyof T & keyof AggregateReport]: P extends '_count' | 'count'
       ? T[P] extends true
         ? number
-        : GetScalarType<T[P], AggregateNote[P]>
-      : GetScalarType<T[P], AggregateNote[P]>
+        : GetScalarType<T[P], AggregateReport[P]>
+      : GetScalarType<T[P], AggregateReport[P]>
   }
 
 
 
 
-  export type NoteGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    where?: NoteWhereInput
-    orderBy?: NoteOrderByWithAggregationInput | NoteOrderByWithAggregationInput[]
-    by: NoteScalarFieldEnum[] | NoteScalarFieldEnum
-    having?: NoteScalarWhereWithAggregatesInput
+  export type ReportGroupByArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    where?: ReportWhereInput
+    orderBy?: ReportOrderByWithAggregationInput | ReportOrderByWithAggregationInput[]
+    by: ReportScalarFieldEnum[] | ReportScalarFieldEnum
+    having?: ReportScalarWhereWithAggregatesInput
     take?: number
     skip?: number
-    _count?: NoteCountAggregateInputType | true
-    _min?: NoteMinAggregateInputType
-    _max?: NoteMaxAggregateInputType
+    _count?: ReportCountAggregateInputType | true
+    _min?: ReportMinAggregateInputType
+    _max?: ReportMaxAggregateInputType
   }
 
-  export type NoteGroupByOutputType = {
+  export type ReportGroupByOutputType = {
     id: string
     visitationId: string
     content: string
     uploadedAt: Date
-    _count: NoteCountAggregateOutputType | null
-    _min: NoteMinAggregateOutputType | null
-    _max: NoteMaxAggregateOutputType | null
+    _count: ReportCountAggregateOutputType | null
+    _min: ReportMinAggregateOutputType | null
+    _max: ReportMaxAggregateOutputType | null
   }
 
-  type GetNoteGroupByPayload<T extends NoteGroupByArgs> = Prisma.PrismaPromise<
+  type GetReportGroupByPayload<T extends ReportGroupByArgs> = Prisma.PrismaPromise<
     Array<
-      PickEnumerable<NoteGroupByOutputType, T['by']> &
+      PickEnumerable<ReportGroupByOutputType, T['by']> &
         {
-          [P in ((keyof T) & (keyof NoteGroupByOutputType))]: P extends '_count'
+          [P in ((keyof T) & (keyof ReportGroupByOutputType))]: P extends '_count'
             ? T[P] extends boolean
               ? number
-              : GetScalarType<T[P], NoteGroupByOutputType[P]>
-            : GetScalarType<T[P], NoteGroupByOutputType[P]>
+              : GetScalarType<T[P], ReportGroupByOutputType[P]>
+            : GetScalarType<T[P], ReportGroupByOutputType[P]>
         }
       >
     >
 
 
-  export type NoteSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ReportSelect<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     visitationId?: boolean
     content?: boolean
     uploadedAt?: boolean
     visitation?: boolean | VisitationDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["note"]>
+  }, ExtArgs["result"]["report"]>
 
-  export type NoteSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ReportSelectCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     visitationId?: boolean
     content?: boolean
     uploadedAt?: boolean
     visitation?: boolean | VisitationDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["note"]>
+  }, ExtArgs["result"]["report"]>
 
-  export type NoteSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
+  export type ReportSelectUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetSelect<{
     id?: boolean
     visitationId?: boolean
     content?: boolean
     uploadedAt?: boolean
     visitation?: boolean | VisitationDefaultArgs<ExtArgs>
-  }, ExtArgs["result"]["note"]>
+  }, ExtArgs["result"]["report"]>
 
-  export type NoteSelectScalar = {
+  export type ReportSelectScalar = {
     id?: boolean
     visitationId?: boolean
     content?: boolean
     uploadedAt?: boolean
   }
 
-  export type NoteOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "visitationId" | "content" | "uploadedAt", ExtArgs["result"]["note"]>
-  export type NoteInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportOmit<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = $Extensions.GetOmit<"id" | "visitationId" | "content" | "uploadedAt", ExtArgs["result"]["report"]>
+  export type ReportInclude<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     visitation?: boolean | VisitationDefaultArgs<ExtArgs>
   }
-  export type NoteIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportIncludeCreateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     visitation?: boolean | VisitationDefaultArgs<ExtArgs>
   }
-  export type NoteIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportIncludeUpdateManyAndReturn<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     visitation?: boolean | VisitationDefaultArgs<ExtArgs>
   }
 
-  export type $NotePayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
-    name: "Note"
+  export type $ReportPayload<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+    name: "Report"
     objects: {
       visitation: Prisma.$VisitationPayload<ExtArgs>
     }
@@ -6165,136 +6178,136 @@ export namespace Prisma {
       visitationId: string
       content: string
       uploadedAt: Date
-    }, ExtArgs["result"]["note"]>
+    }, ExtArgs["result"]["report"]>
     composites: {}
   }
 
-  type NoteGetPayload<S extends boolean | null | undefined | NoteDefaultArgs> = $Result.GetResult<Prisma.$NotePayload, S>
+  type ReportGetPayload<S extends boolean | null | undefined | ReportDefaultArgs> = $Result.GetResult<Prisma.$ReportPayload, S>
 
-  type NoteCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
-    Omit<NoteFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
-      select?: NoteCountAggregateInputType | true
+  type ReportCountArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> =
+    Omit<ReportFindManyArgs, 'select' | 'include' | 'distinct' | 'omit'> & {
+      select?: ReportCountAggregateInputType | true
     }
 
-  export interface NoteDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
-    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Note'], meta: { name: 'Note' } }
+  export interface ReportDelegate<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> {
+    [K: symbol]: { types: Prisma.TypeMap<ExtArgs>['model']['Report'], meta: { name: 'Report' } }
     /**
-     * Find zero or one Note that matches the filter.
-     * @param {NoteFindUniqueArgs} args - Arguments to find a Note
+     * Find zero or one Report that matches the filter.
+     * @param {ReportFindUniqueArgs} args - Arguments to find a Report
      * @example
-     * // Get one Note
-     * const note = await prisma.note.findUnique({
+     * // Get one Report
+     * const report = await prisma.report.findUnique({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUnique<T extends NoteFindUniqueArgs>(args: SelectSubset<T, NoteFindUniqueArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findUnique<T extends ReportFindUniqueArgs>(args: SelectSubset<T, ReportFindUniqueArgs<ExtArgs>>): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "findUnique", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find one Note that matches the filter or throw an error with `error.code='P2025'`
+     * Find one Report that matches the filter or throw an error with `error.code='P2025'`
      * if no matches were found.
-     * @param {NoteFindUniqueOrThrowArgs} args - Arguments to find a Note
+     * @param {ReportFindUniqueOrThrowArgs} args - Arguments to find a Report
      * @example
-     * // Get one Note
-     * const note = await prisma.note.findUniqueOrThrow({
+     * // Get one Report
+     * const report = await prisma.report.findUniqueOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findUniqueOrThrow<T extends NoteFindUniqueOrThrowArgs>(args: SelectSubset<T, NoteFindUniqueOrThrowArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findUniqueOrThrow<T extends ReportFindUniqueOrThrowArgs>(args: SelectSubset<T, ReportFindUniqueOrThrowArgs<ExtArgs>>): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Note that matches the filter.
+     * Find the first Report that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteFindFirstArgs} args - Arguments to find a Note
+     * @param {ReportFindFirstArgs} args - Arguments to find a Report
      * @example
-     * // Get one Note
-     * const note = await prisma.note.findFirst({
+     * // Get one Report
+     * const report = await prisma.report.findFirst({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirst<T extends NoteFindFirstArgs>(args?: SelectSubset<T, NoteFindFirstArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
+    findFirst<T extends ReportFindFirstArgs>(args?: SelectSubset<T, ReportFindFirstArgs<ExtArgs>>): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "findFirst", GlobalOmitOptions> | null, null, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find the first Note that matches the filter or
+     * Find the first Report that matches the filter or
      * throw `PrismaKnownClientError` with `P2025` code if no matches were found.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteFindFirstOrThrowArgs} args - Arguments to find a Note
+     * @param {ReportFindFirstOrThrowArgs} args - Arguments to find a Report
      * @example
-     * // Get one Note
-     * const note = await prisma.note.findFirstOrThrow({
+     * // Get one Report
+     * const report = await prisma.report.findFirstOrThrow({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      */
-    findFirstOrThrow<T extends NoteFindFirstOrThrowArgs>(args?: SelectSubset<T, NoteFindFirstOrThrowArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    findFirstOrThrow<T extends ReportFindFirstOrThrowArgs>(args?: SelectSubset<T, ReportFindFirstOrThrowArgs<ExtArgs>>): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "findFirstOrThrow", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Find zero or more Notes that matches the filter.
+     * Find zero or more Reports that matches the filter.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteFindManyArgs} args - Arguments to filter and select certain fields only.
+     * @param {ReportFindManyArgs} args - Arguments to filter and select certain fields only.
      * @example
-     * // Get all Notes
-     * const notes = await prisma.note.findMany()
+     * // Get all Reports
+     * const reports = await prisma.report.findMany()
      * 
-     * // Get first 10 Notes
-     * const notes = await prisma.note.findMany({ take: 10 })
+     * // Get first 10 Reports
+     * const reports = await prisma.report.findMany({ take: 10 })
      * 
      * // Only select the `id`
-     * const noteWithIdOnly = await prisma.note.findMany({ select: { id: true } })
+     * const reportWithIdOnly = await prisma.report.findMany({ select: { id: true } })
      * 
      */
-    findMany<T extends NoteFindManyArgs>(args?: SelectSubset<T, NoteFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
+    findMany<T extends ReportFindManyArgs>(args?: SelectSubset<T, ReportFindManyArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "findMany", GlobalOmitOptions>>
 
     /**
-     * Create a Note.
-     * @param {NoteCreateArgs} args - Arguments to create a Note.
+     * Create a Report.
+     * @param {ReportCreateArgs} args - Arguments to create a Report.
      * @example
-     * // Create one Note
-     * const Note = await prisma.note.create({
+     * // Create one Report
+     * const Report = await prisma.report.create({
      *   data: {
-     *     // ... data to create a Note
+     *     // ... data to create a Report
      *   }
      * })
      * 
      */
-    create<T extends NoteCreateArgs>(args: SelectSubset<T, NoteCreateArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    create<T extends ReportCreateArgs>(args: SelectSubset<T, ReportCreateArgs<ExtArgs>>): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "create", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Create many Notes.
-     * @param {NoteCreateManyArgs} args - Arguments to create many Notes.
+     * Create many Reports.
+     * @param {ReportCreateManyArgs} args - Arguments to create many Reports.
      * @example
-     * // Create many Notes
-     * const note = await prisma.note.createMany({
+     * // Create many Reports
+     * const report = await prisma.report.createMany({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      *     
      */
-    createMany<T extends NoteCreateManyArgs>(args?: SelectSubset<T, NoteCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    createMany<T extends ReportCreateManyArgs>(args?: SelectSubset<T, ReportCreateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Create many Notes and returns the data saved in the database.
-     * @param {NoteCreateManyAndReturnArgs} args - Arguments to create many Notes.
+     * Create many Reports and returns the data saved in the database.
+     * @param {ReportCreateManyAndReturnArgs} args - Arguments to create many Reports.
      * @example
-     * // Create many Notes
-     * const note = await prisma.note.createManyAndReturn({
+     * // Create many Reports
+     * const report = await prisma.report.createManyAndReturn({
      *   data: [
      *     // ... provide data here
      *   ]
      * })
      * 
-     * // Create many Notes and only return the `id`
-     * const noteWithIdOnly = await prisma.note.createManyAndReturn({
+     * // Create many Reports and only return the `id`
+     * const reportWithIdOnly = await prisma.report.createManyAndReturn({
      *   select: { id: true },
      *   data: [
      *     // ... provide data here
@@ -6304,28 +6317,28 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    createManyAndReturn<T extends NoteCreateManyAndReturnArgs>(args?: SelectSubset<T, NoteCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
+    createManyAndReturn<T extends ReportCreateManyAndReturnArgs>(args?: SelectSubset<T, ReportCreateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "createManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Delete a Note.
-     * @param {NoteDeleteArgs} args - Arguments to delete one Note.
+     * Delete a Report.
+     * @param {ReportDeleteArgs} args - Arguments to delete one Report.
      * @example
-     * // Delete one Note
-     * const Note = await prisma.note.delete({
+     * // Delete one Report
+     * const Report = await prisma.report.delete({
      *   where: {
-     *     // ... filter to delete one Note
+     *     // ... filter to delete one Report
      *   }
      * })
      * 
      */
-    delete<T extends NoteDeleteArgs>(args: SelectSubset<T, NoteDeleteArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    delete<T extends ReportDeleteArgs>(args: SelectSubset<T, ReportDeleteArgs<ExtArgs>>): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "delete", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Update one Note.
-     * @param {NoteUpdateArgs} args - Arguments to update one Note.
+     * Update one Report.
+     * @param {ReportUpdateArgs} args - Arguments to update one Report.
      * @example
-     * // Update one Note
-     * const note = await prisma.note.update({
+     * // Update one Report
+     * const report = await prisma.report.update({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6335,30 +6348,30 @@ export namespace Prisma {
      * })
      * 
      */
-    update<T extends NoteUpdateArgs>(args: SelectSubset<T, NoteUpdateArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    update<T extends ReportUpdateArgs>(args: SelectSubset<T, ReportUpdateArgs<ExtArgs>>): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "update", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
     /**
-     * Delete zero or more Notes.
-     * @param {NoteDeleteManyArgs} args - Arguments to filter Notes to delete.
+     * Delete zero or more Reports.
+     * @param {ReportDeleteManyArgs} args - Arguments to filter Reports to delete.
      * @example
-     * // Delete a few Notes
-     * const { count } = await prisma.note.deleteMany({
+     * // Delete a few Reports
+     * const { count } = await prisma.report.deleteMany({
      *   where: {
      *     // ... provide filter here
      *   }
      * })
      * 
      */
-    deleteMany<T extends NoteDeleteManyArgs>(args?: SelectSubset<T, NoteDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    deleteMany<T extends ReportDeleteManyArgs>(args?: SelectSubset<T, ReportDeleteManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Notes.
+     * Update zero or more Reports.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteUpdateManyArgs} args - Arguments to update one or more rows.
+     * @param {ReportUpdateManyArgs} args - Arguments to update one or more rows.
      * @example
-     * // Update many Notes
-     * const note = await prisma.note.updateMany({
+     * // Update many Reports
+     * const report = await prisma.report.updateMany({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6368,14 +6381,14 @@ export namespace Prisma {
      * })
      * 
      */
-    updateMany<T extends NoteUpdateManyArgs>(args: SelectSubset<T, NoteUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
+    updateMany<T extends ReportUpdateManyArgs>(args: SelectSubset<T, ReportUpdateManyArgs<ExtArgs>>): Prisma.PrismaPromise<BatchPayload>
 
     /**
-     * Update zero or more Notes and returns the data updated in the database.
-     * @param {NoteUpdateManyAndReturnArgs} args - Arguments to update many Notes.
+     * Update zero or more Reports and returns the data updated in the database.
+     * @param {ReportUpdateManyAndReturnArgs} args - Arguments to update many Reports.
      * @example
-     * // Update many Notes
-     * const note = await prisma.note.updateManyAndReturn({
+     * // Update many Reports
+     * const report = await prisma.report.updateManyAndReturn({
      *   where: {
      *     // ... provide filter here
      *   },
@@ -6384,8 +6397,8 @@ export namespace Prisma {
      *   ]
      * })
      * 
-     * // Update zero or more Notes and only return the `id`
-     * const noteWithIdOnly = await prisma.note.updateManyAndReturn({
+     * // Update zero or more Reports and only return the `id`
+     * const reportWithIdOnly = await prisma.report.updateManyAndReturn({
      *   select: { id: true },
      *   where: {
      *     // ... provide filter here
@@ -6398,56 +6411,56 @@ export namespace Prisma {
      * Read more here: https://pris.ly/d/null-undefined
      * 
      */
-    updateManyAndReturn<T extends NoteUpdateManyAndReturnArgs>(args: SelectSubset<T, NoteUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
+    updateManyAndReturn<T extends ReportUpdateManyAndReturnArgs>(args: SelectSubset<T, ReportUpdateManyAndReturnArgs<ExtArgs>>): Prisma.PrismaPromise<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "updateManyAndReturn", GlobalOmitOptions>>
 
     /**
-     * Create or update one Note.
-     * @param {NoteUpsertArgs} args - Arguments to update or create a Note.
+     * Create or update one Report.
+     * @param {ReportUpsertArgs} args - Arguments to update or create a Report.
      * @example
-     * // Update or create a Note
-     * const note = await prisma.note.upsert({
+     * // Update or create a Report
+     * const report = await prisma.report.upsert({
      *   create: {
-     *     // ... data to create a Note
+     *     // ... data to create a Report
      *   },
      *   update: {
      *     // ... in case it already exists, update
      *   },
      *   where: {
-     *     // ... the filter for the Note we want to update
+     *     // ... the filter for the Report we want to update
      *   }
      * })
      */
-    upsert<T extends NoteUpsertArgs>(args: SelectSubset<T, NoteUpsertArgs<ExtArgs>>): Prisma__NoteClient<$Result.GetResult<Prisma.$NotePayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
+    upsert<T extends ReportUpsertArgs>(args: SelectSubset<T, ReportUpsertArgs<ExtArgs>>): Prisma__ReportClient<$Result.GetResult<Prisma.$ReportPayload<ExtArgs>, T, "upsert", GlobalOmitOptions>, never, ExtArgs, GlobalOmitOptions>
 
 
     /**
-     * Count the number of Notes.
+     * Count the number of Reports.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteCountArgs} args - Arguments to filter Notes to count.
+     * @param {ReportCountArgs} args - Arguments to filter Reports to count.
      * @example
-     * // Count the number of Notes
-     * const count = await prisma.note.count({
+     * // Count the number of Reports
+     * const count = await prisma.report.count({
      *   where: {
-     *     // ... the filter for the Notes we want to count
+     *     // ... the filter for the Reports we want to count
      *   }
      * })
     **/
-    count<T extends NoteCountArgs>(
-      args?: Subset<T, NoteCountArgs>,
+    count<T extends ReportCountArgs>(
+      args?: Subset<T, ReportCountArgs>,
     ): Prisma.PrismaPromise<
       T extends $Utils.Record<'select', any>
         ? T['select'] extends true
           ? number
-          : GetScalarType<T['select'], NoteCountAggregateOutputType>
+          : GetScalarType<T['select'], ReportCountAggregateOutputType>
         : number
     >
 
     /**
-     * Allows you to perform aggregations operations on a Note.
+     * Allows you to perform aggregations operations on a Report.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
+     * @param {ReportAggregateArgs} args - Select which aggregations you would like to apply and on what fields.
      * @example
      * // Ordered by age ascending
      * // Where email contains prisma.io
@@ -6467,13 +6480,13 @@ export namespace Prisma {
      *   take: 10,
      * })
     **/
-    aggregate<T extends NoteAggregateArgs>(args: Subset<T, NoteAggregateArgs>): Prisma.PrismaPromise<GetNoteAggregateType<T>>
+    aggregate<T extends ReportAggregateArgs>(args: Subset<T, ReportAggregateArgs>): Prisma.PrismaPromise<GetReportAggregateType<T>>
 
     /**
-     * Group by Note.
+     * Group by Report.
      * Note, that providing `undefined` is treated as the value not being there.
      * Read more here: https://pris.ly/d/null-undefined
-     * @param {NoteGroupByArgs} args - Group by arguments.
+     * @param {ReportGroupByArgs} args - Group by arguments.
      * @example
      * // Group by city, order by createdAt, get count
      * const result = await prisma.user.groupBy({
@@ -6488,14 +6501,14 @@ export namespace Prisma {
      * 
     **/
     groupBy<
-      T extends NoteGroupByArgs,
+      T extends ReportGroupByArgs,
       HasSelectOrTake extends Or<
         Extends<'skip', Keys<T>>,
         Extends<'take', Keys<T>>
       >,
       OrderByArg extends True extends HasSelectOrTake
-        ? { orderBy: NoteGroupByArgs['orderBy'] }
-        : { orderBy?: NoteGroupByArgs['orderBy'] },
+        ? { orderBy: ReportGroupByArgs['orderBy'] }
+        : { orderBy?: ReportGroupByArgs['orderBy'] },
       OrderFields extends ExcludeUnderscoreKeys<Keys<MaybeTupleToUnion<T['orderBy']>>>,
       ByFields extends MaybeTupleToUnion<T['by']>,
       ByValid extends Has<ByFields, OrderFields>,
@@ -6544,20 +6557,20 @@ export namespace Prisma {
             ? never
             : `Error: Field "${P}" in "orderBy" needs to be provided in "by"`
         }[OrderFields]
-    >(args: SubsetIntersection<T, NoteGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetNoteGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
+    >(args: SubsetIntersection<T, ReportGroupByArgs, OrderByArg> & InputErrors): {} extends InputErrors ? GetReportGroupByPayload<T> : Prisma.PrismaPromise<InputErrors>
   /**
-   * Fields of the Note model
+   * Fields of the Report model
    */
-  readonly fields: NoteFieldRefs;
+  readonly fields: ReportFieldRefs;
   }
 
   /**
-   * The delegate class that acts as a "Promise-like" for Note.
+   * The delegate class that acts as a "Promise-like" for Report.
    * Why is this prefixed with `Prisma__`?
    * Because we want to prevent naming conflicts as mentioned in
    * https://github.com/prisma/prisma-client-js/issues/707
    */
-  export interface Prisma__NoteClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
+  export interface Prisma__ReportClient<T, Null = never, ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs, GlobalOmitOptions = {}> extends Prisma.PrismaPromise<T> {
     readonly [Symbol.toStringTag]: "PrismaPromise"
     visitation<T extends VisitationDefaultArgs<ExtArgs> = {}>(args?: Subset<T, VisitationDefaultArgs<ExtArgs>>): Prisma__VisitationClient<$Result.GetResult<Prisma.$VisitationPayload<ExtArgs>, T, "findUniqueOrThrow", GlobalOmitOptions> | Null, Null, ExtArgs, GlobalOmitOptions>
     /**
@@ -6586,424 +6599,424 @@ export namespace Prisma {
 
 
   /**
-   * Fields of the Note model
+   * Fields of the Report model
    */
-  interface NoteFieldRefs {
-    readonly id: FieldRef<"Note", 'String'>
-    readonly visitationId: FieldRef<"Note", 'String'>
-    readonly content: FieldRef<"Note", 'String'>
-    readonly uploadedAt: FieldRef<"Note", 'DateTime'>
+  interface ReportFieldRefs {
+    readonly id: FieldRef<"Report", 'String'>
+    readonly visitationId: FieldRef<"Report", 'String'>
+    readonly content: FieldRef<"Report", 'String'>
+    readonly uploadedAt: FieldRef<"Report", 'DateTime'>
   }
     
 
   // Custom InputTypes
   /**
-   * Note findUnique
+   * Report findUnique
    */
-  export type NoteFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportFindUniqueArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
     /**
-     * Filter, which Note to fetch.
+     * Filter, which Report to fetch.
      */
-    where: NoteWhereUniqueInput
+    where: ReportWhereUniqueInput
   }
 
   /**
-   * Note findUniqueOrThrow
+   * Report findUniqueOrThrow
    */
-  export type NoteFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportFindUniqueOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
     /**
-     * Filter, which Note to fetch.
+     * Filter, which Report to fetch.
      */
-    where: NoteWhereUniqueInput
+    where: ReportWhereUniqueInput
   }
 
   /**
-   * Note findFirst
+   * Report findFirst
    */
-  export type NoteFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportFindFirstArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
     /**
-     * Filter, which Note to fetch.
+     * Filter, which Report to fetch.
      */
-    where?: NoteWhereInput
+    where?: ReportWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Notes to fetch.
+     * Determine the order of Reports to fetch.
      */
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    orderBy?: ReportOrderByWithRelationInput | ReportOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Notes.
+     * Sets the position for searching for Reports.
      */
-    cursor?: NoteWhereUniqueInput
+    cursor?: ReportWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Notes from the position of the cursor.
+     * Take `±n` Reports from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Notes.
+     * Skip the first `n` Reports.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Notes.
+     * Filter by unique combinations of Reports.
      */
-    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+    distinct?: ReportScalarFieldEnum | ReportScalarFieldEnum[]
   }
 
   /**
-   * Note findFirstOrThrow
+   * Report findFirstOrThrow
    */
-  export type NoteFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportFindFirstOrThrowArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
     /**
-     * Filter, which Note to fetch.
+     * Filter, which Report to fetch.
      */
-    where?: NoteWhereInput
+    where?: ReportWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Notes to fetch.
+     * Determine the order of Reports to fetch.
      */
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    orderBy?: ReportOrderByWithRelationInput | ReportOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for searching for Notes.
+     * Sets the position for searching for Reports.
      */
-    cursor?: NoteWhereUniqueInput
+    cursor?: ReportWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Notes from the position of the cursor.
+     * Take `±n` Reports from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Notes.
+     * Skip the first `n` Reports.
      */
     skip?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/distinct Distinct Docs}
      * 
-     * Filter by unique combinations of Notes.
+     * Filter by unique combinations of Reports.
      */
-    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+    distinct?: ReportScalarFieldEnum | ReportScalarFieldEnum[]
   }
 
   /**
-   * Note findMany
+   * Report findMany
    */
-  export type NoteFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportFindManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
     /**
-     * Filter, which Notes to fetch.
+     * Filter, which Reports to fetch.
      */
-    where?: NoteWhereInput
+    where?: ReportWhereInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/sorting Sorting Docs}
      * 
-     * Determine the order of Notes to fetch.
+     * Determine the order of Reports to fetch.
      */
-    orderBy?: NoteOrderByWithRelationInput | NoteOrderByWithRelationInput[]
+    orderBy?: ReportOrderByWithRelationInput | ReportOrderByWithRelationInput[]
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination#cursor-based-pagination Cursor Docs}
      * 
-     * Sets the position for listing Notes.
+     * Sets the position for listing Reports.
      */
-    cursor?: NoteWhereUniqueInput
+    cursor?: ReportWhereUniqueInput
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Take `±n` Notes from the position of the cursor.
+     * Take `±n` Reports from the position of the cursor.
      */
     take?: number
     /**
      * {@link https://www.prisma.io/docs/concepts/components/prisma-client/pagination Pagination Docs}
      * 
-     * Skip the first `n` Notes.
+     * Skip the first `n` Reports.
      */
     skip?: number
-    distinct?: NoteScalarFieldEnum | NoteScalarFieldEnum[]
+    distinct?: ReportScalarFieldEnum | ReportScalarFieldEnum[]
   }
 
   /**
-   * Note create
+   * Report create
    */
-  export type NoteCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportCreateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
     /**
-     * The data needed to create a Note.
+     * The data needed to create a Report.
      */
-    data: XOR<NoteCreateInput, NoteUncheckedCreateInput>
+    data: XOR<ReportCreateInput, ReportUncheckedCreateInput>
   }
 
   /**
-   * Note createMany
+   * Report createMany
    */
-  export type NoteCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportCreateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to create many Notes.
+     * The data used to create many Reports.
      */
-    data: NoteCreateManyInput | NoteCreateManyInput[]
+    data: ReportCreateManyInput | ReportCreateManyInput[]
     skipDuplicates?: boolean
   }
 
   /**
-   * Note createManyAndReturn
+   * Report createManyAndReturn
    */
-  export type NoteCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportCreateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelectCreateManyAndReturn<ExtArgs> | null
+    select?: ReportSelectCreateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
-     * The data used to create many Notes.
+     * The data used to create many Reports.
      */
-    data: NoteCreateManyInput | NoteCreateManyInput[]
+    data: ReportCreateManyInput | ReportCreateManyInput[]
     skipDuplicates?: boolean
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteIncludeCreateManyAndReturn<ExtArgs> | null
+    include?: ReportIncludeCreateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Note update
+   * Report update
    */
-  export type NoteUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportUpdateArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
     /**
-     * The data needed to update a Note.
+     * The data needed to update a Report.
      */
-    data: XOR<NoteUpdateInput, NoteUncheckedUpdateInput>
+    data: XOR<ReportUpdateInput, ReportUncheckedUpdateInput>
     /**
-     * Choose, which Note to update.
+     * Choose, which Report to update.
      */
-    where: NoteWhereUniqueInput
+    where: ReportWhereUniqueInput
   }
 
   /**
-   * Note updateMany
+   * Report updateMany
    */
-  export type NoteUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportUpdateManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * The data used to update Notes.
+     * The data used to update Reports.
      */
-    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyInput>
+    data: XOR<ReportUpdateManyMutationInput, ReportUncheckedUpdateManyInput>
     /**
-     * Filter which Notes to update
+     * Filter which Reports to update
      */
-    where?: NoteWhereInput
+    where?: ReportWhereInput
     /**
-     * Limit how many Notes to update.
+     * Limit how many Reports to update.
      */
     limit?: number
   }
 
   /**
-   * Note updateManyAndReturn
+   * Report updateManyAndReturn
    */
-  export type NoteUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportUpdateManyAndReturnArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelectUpdateManyAndReturn<ExtArgs> | null
+    select?: ReportSelectUpdateManyAndReturn<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
-     * The data used to update Notes.
+     * The data used to update Reports.
      */
-    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyInput>
+    data: XOR<ReportUpdateManyMutationInput, ReportUncheckedUpdateManyInput>
     /**
-     * Filter which Notes to update
+     * Filter which Reports to update
      */
-    where?: NoteWhereInput
+    where?: ReportWhereInput
     /**
-     * Limit how many Notes to update.
+     * Limit how many Reports to update.
      */
     limit?: number
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteIncludeUpdateManyAndReturn<ExtArgs> | null
+    include?: ReportIncludeUpdateManyAndReturn<ExtArgs> | null
   }
 
   /**
-   * Note upsert
+   * Report upsert
    */
-  export type NoteUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportUpsertArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
     /**
-     * The filter to search for the Note to update in case it exists.
+     * The filter to search for the Report to update in case it exists.
      */
-    where: NoteWhereUniqueInput
+    where: ReportWhereUniqueInput
     /**
-     * In case the Note found by the `where` argument doesn't exist, create a new Note with this data.
+     * In case the Report found by the `where` argument doesn't exist, create a new Report with this data.
      */
-    create: XOR<NoteCreateInput, NoteUncheckedCreateInput>
+    create: XOR<ReportCreateInput, ReportUncheckedCreateInput>
     /**
-     * In case the Note was found with the provided `where` argument, update it with this data.
+     * In case the Report was found with the provided `where` argument, update it with this data.
      */
-    update: XOR<NoteUpdateInput, NoteUncheckedUpdateInput>
+    update: XOR<ReportUpdateInput, ReportUncheckedUpdateInput>
   }
 
   /**
-   * Note delete
+   * Report delete
    */
-  export type NoteDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportDeleteArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
     /**
-     * Filter which Note to delete.
+     * Filter which Report to delete.
      */
-    where: NoteWhereUniqueInput
+    where: ReportWhereUniqueInput
   }
 
   /**
-   * Note deleteMany
+   * Report deleteMany
    */
-  export type NoteDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportDeleteManyArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Filter which Notes to delete
+     * Filter which Reports to delete
      */
-    where?: NoteWhereInput
+    where?: ReportWhereInput
     /**
-     * Limit how many Notes to delete.
+     * Limit how many Reports to delete.
      */
     limit?: number
   }
 
   /**
-   * Note without action
+   * Report without action
    */
-  export type NoteDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
+  export type ReportDefaultArgs<ExtArgs extends $Extensions.InternalArgs = $Extensions.DefaultArgs> = {
     /**
-     * Select specific fields to fetch from the Note
+     * Select specific fields to fetch from the Report
      */
-    select?: NoteSelect<ExtArgs> | null
+    select?: ReportSelect<ExtArgs> | null
     /**
-     * Omit specific fields from the Note
+     * Omit specific fields from the Report
      */
-    omit?: NoteOmit<ExtArgs> | null
+    omit?: ReportOmit<ExtArgs> | null
     /**
      * Choose, which related nodes to fetch as well
      */
-    include?: NoteInclude<ExtArgs> | null
+    include?: ReportInclude<ExtArgs> | null
   }
 
 
@@ -7073,6 +7086,7 @@ export namespace Prisma {
     diagnosis: 'diagnosis',
     prescription: 'prescription',
     followUpDate: 'followUpDate',
+    notes: 'notes',
     createdAt: 'createdAt',
     updatedAt: 'updatedAt'
   };
@@ -7080,14 +7094,14 @@ export namespace Prisma {
   export type VisitationScalarFieldEnum = (typeof VisitationScalarFieldEnum)[keyof typeof VisitationScalarFieldEnum]
 
 
-  export const NoteScalarFieldEnum: {
+  export const ReportScalarFieldEnum: {
     id: 'id',
     visitationId: 'visitationId',
     content: 'content',
     uploadedAt: 'uploadedAt'
   };
 
-  export type NoteScalarFieldEnum = (typeof NoteScalarFieldEnum)[keyof typeof NoteScalarFieldEnum]
+  export type ReportScalarFieldEnum = (typeof ReportScalarFieldEnum)[keyof typeof ReportScalarFieldEnum]
 
 
   export const SortOrder: {
@@ -7217,7 +7231,7 @@ export namespace Prisma {
     age?: IntFilter<"Patient"> | number
     gender?: EnumGenderFilter<"Patient"> | $Enums.Gender
     phone?: StringFilter<"Patient"> | string
-    email?: StringFilter<"Patient"> | string
+    email?: StringNullableFilter<"Patient"> | string | null
     address?: StringNullableFilter<"Patient"> | string | null
     createdAt?: DateTimeFilter<"Patient"> | Date | string
     updatedAt?: DateTimeFilter<"Patient"> | Date | string
@@ -7233,7 +7247,7 @@ export namespace Prisma {
     age?: SortOrder
     gender?: SortOrder
     phone?: SortOrder
-    email?: SortOrder
+    email?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7243,7 +7257,6 @@ export namespace Prisma {
 
   export type PatientWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    email?: string
     AND?: PatientWhereInput | PatientWhereInput[]
     OR?: PatientWhereInput[]
     NOT?: PatientWhereInput | PatientWhereInput[]
@@ -7253,12 +7266,13 @@ export namespace Prisma {
     age?: IntFilter<"Patient"> | number
     gender?: EnumGenderFilter<"Patient"> | $Enums.Gender
     phone?: StringFilter<"Patient"> | string
+    email?: StringNullableFilter<"Patient"> | string | null
     address?: StringNullableFilter<"Patient"> | string | null
     createdAt?: DateTimeFilter<"Patient"> | Date | string
     updatedAt?: DateTimeFilter<"Patient"> | Date | string
     visitations?: VisitationListRelationFilter
     appointments?: AppointmentListRelationFilter
-  }, "id" | "email">
+  }, "id">
 
   export type PatientOrderByWithAggregationInput = {
     id?: SortOrder
@@ -7268,7 +7282,7 @@ export namespace Prisma {
     age?: SortOrder
     gender?: SortOrder
     phone?: SortOrder
-    email?: SortOrder
+    email?: SortOrderInput | SortOrder
     address?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
@@ -7290,7 +7304,7 @@ export namespace Prisma {
     age?: IntWithAggregatesFilter<"Patient"> | number
     gender?: EnumGenderWithAggregatesFilter<"Patient"> | $Enums.Gender
     phone?: StringWithAggregatesFilter<"Patient"> | string
-    email?: StringWithAggregatesFilter<"Patient"> | string
+    email?: StringNullableWithAggregatesFilter<"Patient"> | string | null
     address?: StringNullableWithAggregatesFilter<"Patient"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Patient"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Patient"> | Date | string
@@ -7448,11 +7462,12 @@ export namespace Prisma {
     diagnosis?: StringNullableFilter<"Visitation"> | string | null
     prescription?: StringNullableFilter<"Visitation"> | string | null
     followUpDate?: DateTimeNullableFilter<"Visitation"> | Date | string | null
+    notes?: StringNullableFilter<"Visitation"> | string | null
     createdAt?: DateTimeFilter<"Visitation"> | Date | string
     updatedAt?: DateTimeFilter<"Visitation"> | Date | string
     patient?: XOR<PatientScalarRelationFilter, PatientWhereInput>
     doctor?: XOR<DoctorScalarRelationFilter, DoctorWhereInput>
-    notes?: NoteListRelationFilter
+    report?: ReportListRelationFilter
   }
 
   export type VisitationOrderByWithRelationInput = {
@@ -7463,11 +7478,12 @@ export namespace Prisma {
     diagnosis?: SortOrderInput | SortOrder
     prescription?: SortOrderInput | SortOrder
     followUpDate?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     patient?: PatientOrderByWithRelationInput
     doctor?: DoctorOrderByWithRelationInput
-    notes?: NoteOrderByRelationAggregateInput
+    report?: ReportOrderByRelationAggregateInput
   }
 
   export type VisitationWhereUniqueInput = Prisma.AtLeast<{
@@ -7481,11 +7497,12 @@ export namespace Prisma {
     diagnosis?: StringNullableFilter<"Visitation"> | string | null
     prescription?: StringNullableFilter<"Visitation"> | string | null
     followUpDate?: DateTimeNullableFilter<"Visitation"> | Date | string | null
+    notes?: StringNullableFilter<"Visitation"> | string | null
     createdAt?: DateTimeFilter<"Visitation"> | Date | string
     updatedAt?: DateTimeFilter<"Visitation"> | Date | string
     patient?: XOR<PatientScalarRelationFilter, PatientWhereInput>
     doctor?: XOR<DoctorScalarRelationFilter, DoctorWhereInput>
-    notes?: NoteListRelationFilter
+    report?: ReportListRelationFilter
   }, "id">
 
   export type VisitationOrderByWithAggregationInput = {
@@ -7496,6 +7513,7 @@ export namespace Prisma {
     diagnosis?: SortOrderInput | SortOrder
     prescription?: SortOrderInput | SortOrder
     followUpDate?: SortOrderInput | SortOrder
+    notes?: SortOrderInput | SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
     _count?: VisitationCountOrderByAggregateInput
@@ -7514,22 +7532,23 @@ export namespace Prisma {
     diagnosis?: StringNullableWithAggregatesFilter<"Visitation"> | string | null
     prescription?: StringNullableWithAggregatesFilter<"Visitation"> | string | null
     followUpDate?: DateTimeNullableWithAggregatesFilter<"Visitation"> | Date | string | null
+    notes?: StringNullableWithAggregatesFilter<"Visitation"> | string | null
     createdAt?: DateTimeWithAggregatesFilter<"Visitation"> | Date | string
     updatedAt?: DateTimeWithAggregatesFilter<"Visitation"> | Date | string
   }
 
-  export type NoteWhereInput = {
-    AND?: NoteWhereInput | NoteWhereInput[]
-    OR?: NoteWhereInput[]
-    NOT?: NoteWhereInput | NoteWhereInput[]
-    id?: StringFilter<"Note"> | string
-    visitationId?: StringFilter<"Note"> | string
-    content?: StringFilter<"Note"> | string
-    uploadedAt?: DateTimeFilter<"Note"> | Date | string
+  export type ReportWhereInput = {
+    AND?: ReportWhereInput | ReportWhereInput[]
+    OR?: ReportWhereInput[]
+    NOT?: ReportWhereInput | ReportWhereInput[]
+    id?: StringFilter<"Report"> | string
+    visitationId?: StringFilter<"Report"> | string
+    content?: StringFilter<"Report"> | string
+    uploadedAt?: DateTimeFilter<"Report"> | Date | string
     visitation?: XOR<VisitationScalarRelationFilter, VisitationWhereInput>
   }
 
-  export type NoteOrderByWithRelationInput = {
+  export type ReportOrderByWithRelationInput = {
     id?: SortOrder
     visitationId?: SortOrder
     content?: SortOrder
@@ -7537,35 +7556,35 @@ export namespace Prisma {
     visitation?: VisitationOrderByWithRelationInput
   }
 
-  export type NoteWhereUniqueInput = Prisma.AtLeast<{
+  export type ReportWhereUniqueInput = Prisma.AtLeast<{
     id?: string
-    AND?: NoteWhereInput | NoteWhereInput[]
-    OR?: NoteWhereInput[]
-    NOT?: NoteWhereInput | NoteWhereInput[]
-    visitationId?: StringFilter<"Note"> | string
-    content?: StringFilter<"Note"> | string
-    uploadedAt?: DateTimeFilter<"Note"> | Date | string
+    AND?: ReportWhereInput | ReportWhereInput[]
+    OR?: ReportWhereInput[]
+    NOT?: ReportWhereInput | ReportWhereInput[]
+    visitationId?: StringFilter<"Report"> | string
+    content?: StringFilter<"Report"> | string
+    uploadedAt?: DateTimeFilter<"Report"> | Date | string
     visitation?: XOR<VisitationScalarRelationFilter, VisitationWhereInput>
   }, "id">
 
-  export type NoteOrderByWithAggregationInput = {
+  export type ReportOrderByWithAggregationInput = {
     id?: SortOrder
     visitationId?: SortOrder
     content?: SortOrder
     uploadedAt?: SortOrder
-    _count?: NoteCountOrderByAggregateInput
-    _max?: NoteMaxOrderByAggregateInput
-    _min?: NoteMinOrderByAggregateInput
+    _count?: ReportCountOrderByAggregateInput
+    _max?: ReportMaxOrderByAggregateInput
+    _min?: ReportMinOrderByAggregateInput
   }
 
-  export type NoteScalarWhereWithAggregatesInput = {
-    AND?: NoteScalarWhereWithAggregatesInput | NoteScalarWhereWithAggregatesInput[]
-    OR?: NoteScalarWhereWithAggregatesInput[]
-    NOT?: NoteScalarWhereWithAggregatesInput | NoteScalarWhereWithAggregatesInput[]
-    id?: StringWithAggregatesFilter<"Note"> | string
-    visitationId?: StringWithAggregatesFilter<"Note"> | string
-    content?: StringWithAggregatesFilter<"Note"> | string
-    uploadedAt?: DateTimeWithAggregatesFilter<"Note"> | Date | string
+  export type ReportScalarWhereWithAggregatesInput = {
+    AND?: ReportScalarWhereWithAggregatesInput | ReportScalarWhereWithAggregatesInput[]
+    OR?: ReportScalarWhereWithAggregatesInput[]
+    NOT?: ReportScalarWhereWithAggregatesInput | ReportScalarWhereWithAggregatesInput[]
+    id?: StringWithAggregatesFilter<"Report"> | string
+    visitationId?: StringWithAggregatesFilter<"Report"> | string
+    content?: StringWithAggregatesFilter<"Report"> | string
+    uploadedAt?: DateTimeWithAggregatesFilter<"Report"> | Date | string
   }
 
   export type PatientCreateInput = {
@@ -7576,7 +7595,7 @@ export namespace Prisma {
     age: number
     gender: $Enums.Gender
     phone: string
-    email: string
+    email?: string | null
     address?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7592,7 +7611,7 @@ export namespace Prisma {
     age: number
     gender: $Enums.Gender
     phone: string
-    email: string
+    email?: string | null
     address?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7608,7 +7627,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
     phone?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7624,7 +7643,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
     phone?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7640,7 +7659,7 @@ export namespace Prisma {
     age: number
     gender: $Enums.Gender
     phone: string
-    email: string
+    email?: string | null
     address?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -7654,7 +7673,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
     phone?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7668,7 +7687,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
     phone?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -7833,11 +7852,12 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     patient: PatientCreateNestedOneWithoutVisitationsInput
     doctor: DoctorCreateNestedOneWithoutVisitationsInput
-    notes?: NoteCreateNestedManyWithoutVisitationInput
+    report?: ReportCreateNestedManyWithoutVisitationInput
   }
 
   export type VisitationUncheckedCreateInput = {
@@ -7848,9 +7868,10 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    notes?: NoteUncheckedCreateNestedManyWithoutVisitationInput
+    report?: ReportUncheckedCreateNestedManyWithoutVisitationInput
   }
 
   export type VisitationUpdateInput = {
@@ -7859,11 +7880,12 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     patient?: PatientUpdateOneRequiredWithoutVisitationsNestedInput
     doctor?: DoctorUpdateOneRequiredWithoutVisitationsNestedInput
-    notes?: NoteUpdateManyWithoutVisitationNestedInput
+    report?: ReportUpdateManyWithoutVisitationNestedInput
   }
 
   export type VisitationUncheckedUpdateInput = {
@@ -7874,9 +7896,10 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    notes?: NoteUncheckedUpdateManyWithoutVisitationNestedInput
+    report?: ReportUncheckedUpdateManyWithoutVisitationNestedInput
   }
 
   export type VisitationCreateManyInput = {
@@ -7887,6 +7910,7 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -7897,6 +7921,7 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -7909,52 +7934,53 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type NoteCreateInput = {
+  export type ReportCreateInput = {
     id?: string
     content: string
     uploadedAt?: Date | string
-    visitation: VisitationCreateNestedOneWithoutNotesInput
+    visitation: VisitationCreateNestedOneWithoutReportInput
   }
 
-  export type NoteUncheckedCreateInput = {
+  export type ReportUncheckedCreateInput = {
     id?: string
     visitationId: string
     content: string
     uploadedAt?: Date | string
   }
 
-  export type NoteUpdateInput = {
+  export type ReportUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     uploadedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    visitation?: VisitationUpdateOneRequiredWithoutNotesNestedInput
+    visitation?: VisitationUpdateOneRequiredWithoutReportNestedInput
   }
 
-  export type NoteUncheckedUpdateInput = {
+  export type ReportUncheckedUpdateInput = {
     id?: StringFieldUpdateOperationsInput | string
     visitationId?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     uploadedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type NoteCreateManyInput = {
+  export type ReportCreateManyInput = {
     id?: string
     visitationId: string
     content: string
     uploadedAt?: Date | string
   }
 
-  export type NoteUpdateManyMutationInput = {
+  export type ReportUpdateManyMutationInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     uploadedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type NoteUncheckedUpdateManyInput = {
+  export type ReportUncheckedUpdateManyInput = {
     id?: StringFieldUpdateOperationsInput | string
     visitationId?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
@@ -8272,13 +8298,13 @@ export namespace Prisma {
     not?: NestedDateTimeNullableFilter<$PrismaModel> | Date | string | null
   }
 
-  export type NoteListRelationFilter = {
-    every?: NoteWhereInput
-    some?: NoteWhereInput
-    none?: NoteWhereInput
+  export type ReportListRelationFilter = {
+    every?: ReportWhereInput
+    some?: ReportWhereInput
+    none?: ReportWhereInput
   }
 
-  export type NoteOrderByRelationAggregateInput = {
+  export type ReportOrderByRelationAggregateInput = {
     _count?: SortOrder
   }
 
@@ -8290,6 +8316,7 @@ export namespace Prisma {
     diagnosis?: SortOrder
     prescription?: SortOrder
     followUpDate?: SortOrder
+    notes?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -8302,6 +8329,7 @@ export namespace Prisma {
     diagnosis?: SortOrder
     prescription?: SortOrder
     followUpDate?: SortOrder
+    notes?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -8314,6 +8342,7 @@ export namespace Prisma {
     diagnosis?: SortOrder
     prescription?: SortOrder
     followUpDate?: SortOrder
+    notes?: SortOrder
     createdAt?: SortOrder
     updatedAt?: SortOrder
   }
@@ -8337,21 +8366,21 @@ export namespace Prisma {
     isNot?: VisitationWhereInput
   }
 
-  export type NoteCountOrderByAggregateInput = {
+  export type ReportCountOrderByAggregateInput = {
     id?: SortOrder
     visitationId?: SortOrder
     content?: SortOrder
     uploadedAt?: SortOrder
   }
 
-  export type NoteMaxOrderByAggregateInput = {
+  export type ReportMaxOrderByAggregateInput = {
     id?: SortOrder
     visitationId?: SortOrder
     content?: SortOrder
     uploadedAt?: SortOrder
   }
 
-  export type NoteMinOrderByAggregateInput = {
+  export type ReportMinOrderByAggregateInput = {
     id?: SortOrder
     visitationId?: SortOrder
     content?: SortOrder
@@ -8594,18 +8623,18 @@ export namespace Prisma {
     connect?: DoctorWhereUniqueInput
   }
 
-  export type NoteCreateNestedManyWithoutVisitationInput = {
-    create?: XOR<NoteCreateWithoutVisitationInput, NoteUncheckedCreateWithoutVisitationInput> | NoteCreateWithoutVisitationInput[] | NoteUncheckedCreateWithoutVisitationInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutVisitationInput | NoteCreateOrConnectWithoutVisitationInput[]
-    createMany?: NoteCreateManyVisitationInputEnvelope
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  export type ReportCreateNestedManyWithoutVisitationInput = {
+    create?: XOR<ReportCreateWithoutVisitationInput, ReportUncheckedCreateWithoutVisitationInput> | ReportCreateWithoutVisitationInput[] | ReportUncheckedCreateWithoutVisitationInput[]
+    connectOrCreate?: ReportCreateOrConnectWithoutVisitationInput | ReportCreateOrConnectWithoutVisitationInput[]
+    createMany?: ReportCreateManyVisitationInputEnvelope
+    connect?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
   }
 
-  export type NoteUncheckedCreateNestedManyWithoutVisitationInput = {
-    create?: XOR<NoteCreateWithoutVisitationInput, NoteUncheckedCreateWithoutVisitationInput> | NoteCreateWithoutVisitationInput[] | NoteUncheckedCreateWithoutVisitationInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutVisitationInput | NoteCreateOrConnectWithoutVisitationInput[]
-    createMany?: NoteCreateManyVisitationInputEnvelope
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
+  export type ReportUncheckedCreateNestedManyWithoutVisitationInput = {
+    create?: XOR<ReportCreateWithoutVisitationInput, ReportUncheckedCreateWithoutVisitationInput> | ReportCreateWithoutVisitationInput[] | ReportUncheckedCreateWithoutVisitationInput[]
+    connectOrCreate?: ReportCreateOrConnectWithoutVisitationInput | ReportCreateOrConnectWithoutVisitationInput[]
+    createMany?: ReportCreateManyVisitationInputEnvelope
+    connect?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
   }
 
   export type NullableDateTimeFieldUpdateOperationsInput = {
@@ -8628,46 +8657,46 @@ export namespace Prisma {
     update?: XOR<XOR<DoctorUpdateToOneWithWhereWithoutVisitationsInput, DoctorUpdateWithoutVisitationsInput>, DoctorUncheckedUpdateWithoutVisitationsInput>
   }
 
-  export type NoteUpdateManyWithoutVisitationNestedInput = {
-    create?: XOR<NoteCreateWithoutVisitationInput, NoteUncheckedCreateWithoutVisitationInput> | NoteCreateWithoutVisitationInput[] | NoteUncheckedCreateWithoutVisitationInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutVisitationInput | NoteCreateOrConnectWithoutVisitationInput[]
-    upsert?: NoteUpsertWithWhereUniqueWithoutVisitationInput | NoteUpsertWithWhereUniqueWithoutVisitationInput[]
-    createMany?: NoteCreateManyVisitationInputEnvelope
-    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    update?: NoteUpdateWithWhereUniqueWithoutVisitationInput | NoteUpdateWithWhereUniqueWithoutVisitationInput[]
-    updateMany?: NoteUpdateManyWithWhereWithoutVisitationInput | NoteUpdateManyWithWhereWithoutVisitationInput[]
-    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  export type ReportUpdateManyWithoutVisitationNestedInput = {
+    create?: XOR<ReportCreateWithoutVisitationInput, ReportUncheckedCreateWithoutVisitationInput> | ReportCreateWithoutVisitationInput[] | ReportUncheckedCreateWithoutVisitationInput[]
+    connectOrCreate?: ReportCreateOrConnectWithoutVisitationInput | ReportCreateOrConnectWithoutVisitationInput[]
+    upsert?: ReportUpsertWithWhereUniqueWithoutVisitationInput | ReportUpsertWithWhereUniqueWithoutVisitationInput[]
+    createMany?: ReportCreateManyVisitationInputEnvelope
+    set?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
+    disconnect?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
+    delete?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
+    connect?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
+    update?: ReportUpdateWithWhereUniqueWithoutVisitationInput | ReportUpdateWithWhereUniqueWithoutVisitationInput[]
+    updateMany?: ReportUpdateManyWithWhereWithoutVisitationInput | ReportUpdateManyWithWhereWithoutVisitationInput[]
+    deleteMany?: ReportScalarWhereInput | ReportScalarWhereInput[]
   }
 
-  export type NoteUncheckedUpdateManyWithoutVisitationNestedInput = {
-    create?: XOR<NoteCreateWithoutVisitationInput, NoteUncheckedCreateWithoutVisitationInput> | NoteCreateWithoutVisitationInput[] | NoteUncheckedCreateWithoutVisitationInput[]
-    connectOrCreate?: NoteCreateOrConnectWithoutVisitationInput | NoteCreateOrConnectWithoutVisitationInput[]
-    upsert?: NoteUpsertWithWhereUniqueWithoutVisitationInput | NoteUpsertWithWhereUniqueWithoutVisitationInput[]
-    createMany?: NoteCreateManyVisitationInputEnvelope
-    set?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    disconnect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    delete?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    connect?: NoteWhereUniqueInput | NoteWhereUniqueInput[]
-    update?: NoteUpdateWithWhereUniqueWithoutVisitationInput | NoteUpdateWithWhereUniqueWithoutVisitationInput[]
-    updateMany?: NoteUpdateManyWithWhereWithoutVisitationInput | NoteUpdateManyWithWhereWithoutVisitationInput[]
-    deleteMany?: NoteScalarWhereInput | NoteScalarWhereInput[]
+  export type ReportUncheckedUpdateManyWithoutVisitationNestedInput = {
+    create?: XOR<ReportCreateWithoutVisitationInput, ReportUncheckedCreateWithoutVisitationInput> | ReportCreateWithoutVisitationInput[] | ReportUncheckedCreateWithoutVisitationInput[]
+    connectOrCreate?: ReportCreateOrConnectWithoutVisitationInput | ReportCreateOrConnectWithoutVisitationInput[]
+    upsert?: ReportUpsertWithWhereUniqueWithoutVisitationInput | ReportUpsertWithWhereUniqueWithoutVisitationInput[]
+    createMany?: ReportCreateManyVisitationInputEnvelope
+    set?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
+    disconnect?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
+    delete?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
+    connect?: ReportWhereUniqueInput | ReportWhereUniqueInput[]
+    update?: ReportUpdateWithWhereUniqueWithoutVisitationInput | ReportUpdateWithWhereUniqueWithoutVisitationInput[]
+    updateMany?: ReportUpdateManyWithWhereWithoutVisitationInput | ReportUpdateManyWithWhereWithoutVisitationInput[]
+    deleteMany?: ReportScalarWhereInput | ReportScalarWhereInput[]
   }
 
-  export type VisitationCreateNestedOneWithoutNotesInput = {
-    create?: XOR<VisitationCreateWithoutNotesInput, VisitationUncheckedCreateWithoutNotesInput>
-    connectOrCreate?: VisitationCreateOrConnectWithoutNotesInput
+  export type VisitationCreateNestedOneWithoutReportInput = {
+    create?: XOR<VisitationCreateWithoutReportInput, VisitationUncheckedCreateWithoutReportInput>
+    connectOrCreate?: VisitationCreateOrConnectWithoutReportInput
     connect?: VisitationWhereUniqueInput
   }
 
-  export type VisitationUpdateOneRequiredWithoutNotesNestedInput = {
-    create?: XOR<VisitationCreateWithoutNotesInput, VisitationUncheckedCreateWithoutNotesInput>
-    connectOrCreate?: VisitationCreateOrConnectWithoutNotesInput
-    upsert?: VisitationUpsertWithoutNotesInput
+  export type VisitationUpdateOneRequiredWithoutReportNestedInput = {
+    create?: XOR<VisitationCreateWithoutReportInput, VisitationUncheckedCreateWithoutReportInput>
+    connectOrCreate?: VisitationCreateOrConnectWithoutReportInput
+    upsert?: VisitationUpsertWithoutReportInput
     connect?: VisitationWhereUniqueInput
-    update?: XOR<XOR<VisitationUpdateToOneWithWhereWithoutNotesInput, VisitationUpdateWithoutNotesInput>, VisitationUncheckedUpdateWithoutNotesInput>
+    update?: XOR<XOR<VisitationUpdateToOneWithWhereWithoutReportInput, VisitationUpdateWithoutReportInput>, VisitationUncheckedUpdateWithoutReportInput>
   }
 
   export type NestedStringFilter<$PrismaModel = never> = {
@@ -8871,10 +8900,11 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     doctor: DoctorCreateNestedOneWithoutVisitationsInput
-    notes?: NoteCreateNestedManyWithoutVisitationInput
+    report?: ReportCreateNestedManyWithoutVisitationInput
   }
 
   export type VisitationUncheckedCreateWithoutPatientInput = {
@@ -8884,9 +8914,10 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    notes?: NoteUncheckedCreateNestedManyWithoutVisitationInput
+    report?: ReportUncheckedCreateNestedManyWithoutVisitationInput
   }
 
   export type VisitationCreateOrConnectWithoutPatientInput = {
@@ -8956,6 +8987,7 @@ export namespace Prisma {
     diagnosis?: StringNullableFilter<"Visitation"> | string | null
     prescription?: StringNullableFilter<"Visitation"> | string | null
     followUpDate?: DateTimeNullableFilter<"Visitation"> | Date | string | null
+    notes?: StringNullableFilter<"Visitation"> | string | null
     createdAt?: DateTimeFilter<"Visitation"> | Date | string
     updatedAt?: DateTimeFilter<"Visitation"> | Date | string
   }
@@ -9026,10 +9058,11 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     patient: PatientCreateNestedOneWithoutVisitationsInput
-    notes?: NoteCreateNestedManyWithoutVisitationInput
+    report?: ReportCreateNestedManyWithoutVisitationInput
   }
 
   export type VisitationUncheckedCreateWithoutDoctorInput = {
@@ -9039,9 +9072,10 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
-    notes?: NoteUncheckedCreateNestedManyWithoutVisitationInput
+    report?: ReportUncheckedCreateNestedManyWithoutVisitationInput
   }
 
   export type VisitationCreateOrConnectWithoutDoctorInput = {
@@ -9094,7 +9128,7 @@ export namespace Prisma {
     age: number
     gender: $Enums.Gender
     phone: string
-    email: string
+    email?: string | null
     address?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -9109,7 +9143,7 @@ export namespace Prisma {
     age: number
     gender: $Enums.Gender
     phone: string
-    email: string
+    email?: string | null
     address?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -9167,7 +9201,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
     phone?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9182,7 +9216,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
     phone?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9230,7 +9264,7 @@ export namespace Prisma {
     age: number
     gender: $Enums.Gender
     phone: string
-    email: string
+    email?: string | null
     address?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -9245,7 +9279,7 @@ export namespace Prisma {
     age: number
     gender: $Enums.Gender
     phone: string
-    email: string
+    email?: string | null
     address?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
@@ -9284,25 +9318,25 @@ export namespace Prisma {
     create: XOR<DoctorCreateWithoutVisitationsInput, DoctorUncheckedCreateWithoutVisitationsInput>
   }
 
-  export type NoteCreateWithoutVisitationInput = {
+  export type ReportCreateWithoutVisitationInput = {
     id?: string
     content: string
     uploadedAt?: Date | string
   }
 
-  export type NoteUncheckedCreateWithoutVisitationInput = {
+  export type ReportUncheckedCreateWithoutVisitationInput = {
     id?: string
     content: string
     uploadedAt?: Date | string
   }
 
-  export type NoteCreateOrConnectWithoutVisitationInput = {
-    where: NoteWhereUniqueInput
-    create: XOR<NoteCreateWithoutVisitationInput, NoteUncheckedCreateWithoutVisitationInput>
+  export type ReportCreateOrConnectWithoutVisitationInput = {
+    where: ReportWhereUniqueInput
+    create: XOR<ReportCreateWithoutVisitationInput, ReportUncheckedCreateWithoutVisitationInput>
   }
 
-  export type NoteCreateManyVisitationInputEnvelope = {
-    data: NoteCreateManyVisitationInput | NoteCreateManyVisitationInput[]
+  export type ReportCreateManyVisitationInputEnvelope = {
+    data: ReportCreateManyVisitationInput | ReportCreateManyVisitationInput[]
     skipDuplicates?: boolean
   }
 
@@ -9325,7 +9359,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
     phone?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9340,7 +9374,7 @@ export namespace Prisma {
     age?: IntFieldUpdateOperationsInput | number
     gender?: EnumGenderFieldUpdateOperationsInput | $Enums.Gender
     phone?: StringFieldUpdateOperationsInput | string
-    email?: StringFieldUpdateOperationsInput | string
+    email?: NullableStringFieldUpdateOperationsInput | string | null
     address?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
@@ -9380,45 +9414,46 @@ export namespace Prisma {
     appointments?: AppointmentUncheckedUpdateManyWithoutDoctorNestedInput
   }
 
-  export type NoteUpsertWithWhereUniqueWithoutVisitationInput = {
-    where: NoteWhereUniqueInput
-    update: XOR<NoteUpdateWithoutVisitationInput, NoteUncheckedUpdateWithoutVisitationInput>
-    create: XOR<NoteCreateWithoutVisitationInput, NoteUncheckedCreateWithoutVisitationInput>
+  export type ReportUpsertWithWhereUniqueWithoutVisitationInput = {
+    where: ReportWhereUniqueInput
+    update: XOR<ReportUpdateWithoutVisitationInput, ReportUncheckedUpdateWithoutVisitationInput>
+    create: XOR<ReportCreateWithoutVisitationInput, ReportUncheckedCreateWithoutVisitationInput>
   }
 
-  export type NoteUpdateWithWhereUniqueWithoutVisitationInput = {
-    where: NoteWhereUniqueInput
-    data: XOR<NoteUpdateWithoutVisitationInput, NoteUncheckedUpdateWithoutVisitationInput>
+  export type ReportUpdateWithWhereUniqueWithoutVisitationInput = {
+    where: ReportWhereUniqueInput
+    data: XOR<ReportUpdateWithoutVisitationInput, ReportUncheckedUpdateWithoutVisitationInput>
   }
 
-  export type NoteUpdateManyWithWhereWithoutVisitationInput = {
-    where: NoteScalarWhereInput
-    data: XOR<NoteUpdateManyMutationInput, NoteUncheckedUpdateManyWithoutVisitationInput>
+  export type ReportUpdateManyWithWhereWithoutVisitationInput = {
+    where: ReportScalarWhereInput
+    data: XOR<ReportUpdateManyMutationInput, ReportUncheckedUpdateManyWithoutVisitationInput>
   }
 
-  export type NoteScalarWhereInput = {
-    AND?: NoteScalarWhereInput | NoteScalarWhereInput[]
-    OR?: NoteScalarWhereInput[]
-    NOT?: NoteScalarWhereInput | NoteScalarWhereInput[]
-    id?: StringFilter<"Note"> | string
-    visitationId?: StringFilter<"Note"> | string
-    content?: StringFilter<"Note"> | string
-    uploadedAt?: DateTimeFilter<"Note"> | Date | string
+  export type ReportScalarWhereInput = {
+    AND?: ReportScalarWhereInput | ReportScalarWhereInput[]
+    OR?: ReportScalarWhereInput[]
+    NOT?: ReportScalarWhereInput | ReportScalarWhereInput[]
+    id?: StringFilter<"Report"> | string
+    visitationId?: StringFilter<"Report"> | string
+    content?: StringFilter<"Report"> | string
+    uploadedAt?: DateTimeFilter<"Report"> | Date | string
   }
 
-  export type VisitationCreateWithoutNotesInput = {
+  export type VisitationCreateWithoutReportInput = {
     id?: string
     visitedAt: Date | string
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
     patient: PatientCreateNestedOneWithoutVisitationsInput
     doctor: DoctorCreateNestedOneWithoutVisitationsInput
   }
 
-  export type VisitationUncheckedCreateWithoutNotesInput = {
+  export type VisitationUncheckedCreateWithoutReportInput = {
     id?: string
     patientId: string
     doctorId: string
@@ -9426,39 +9461,41 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
 
-  export type VisitationCreateOrConnectWithoutNotesInput = {
+  export type VisitationCreateOrConnectWithoutReportInput = {
     where: VisitationWhereUniqueInput
-    create: XOR<VisitationCreateWithoutNotesInput, VisitationUncheckedCreateWithoutNotesInput>
+    create: XOR<VisitationCreateWithoutReportInput, VisitationUncheckedCreateWithoutReportInput>
   }
 
-  export type VisitationUpsertWithoutNotesInput = {
-    update: XOR<VisitationUpdateWithoutNotesInput, VisitationUncheckedUpdateWithoutNotesInput>
-    create: XOR<VisitationCreateWithoutNotesInput, VisitationUncheckedCreateWithoutNotesInput>
+  export type VisitationUpsertWithoutReportInput = {
+    update: XOR<VisitationUpdateWithoutReportInput, VisitationUncheckedUpdateWithoutReportInput>
+    create: XOR<VisitationCreateWithoutReportInput, VisitationUncheckedCreateWithoutReportInput>
     where?: VisitationWhereInput
   }
 
-  export type VisitationUpdateToOneWithWhereWithoutNotesInput = {
+  export type VisitationUpdateToOneWithWhereWithoutReportInput = {
     where?: VisitationWhereInput
-    data: XOR<VisitationUpdateWithoutNotesInput, VisitationUncheckedUpdateWithoutNotesInput>
+    data: XOR<VisitationUpdateWithoutReportInput, VisitationUncheckedUpdateWithoutReportInput>
   }
 
-  export type VisitationUpdateWithoutNotesInput = {
+  export type VisitationUpdateWithoutReportInput = {
     id?: StringFieldUpdateOperationsInput | string
     visitedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     patient?: PatientUpdateOneRequiredWithoutVisitationsNestedInput
     doctor?: DoctorUpdateOneRequiredWithoutVisitationsNestedInput
   }
 
-  export type VisitationUncheckedUpdateWithoutNotesInput = {
+  export type VisitationUncheckedUpdateWithoutReportInput = {
     id?: StringFieldUpdateOperationsInput | string
     patientId?: StringFieldUpdateOperationsInput | string
     doctorId?: StringFieldUpdateOperationsInput | string
@@ -9466,6 +9503,7 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9477,6 +9515,7 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9497,10 +9536,11 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     doctor?: DoctorUpdateOneRequiredWithoutVisitationsNestedInput
-    notes?: NoteUpdateManyWithoutVisitationNestedInput
+    report?: ReportUpdateManyWithoutVisitationNestedInput
   }
 
   export type VisitationUncheckedUpdateWithoutPatientInput = {
@@ -9510,9 +9550,10 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    notes?: NoteUncheckedUpdateManyWithoutVisitationNestedInput
+    report?: ReportUncheckedUpdateManyWithoutVisitationNestedInput
   }
 
   export type VisitationUncheckedUpdateManyWithoutPatientInput = {
@@ -9522,6 +9563,7 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
@@ -9573,6 +9615,7 @@ export namespace Prisma {
     diagnosis?: string | null
     prescription?: string | null
     followUpDate?: Date | string | null
+    notes?: string | null
     createdAt?: Date | string
     updatedAt?: Date | string
   }
@@ -9613,10 +9656,11 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
     patient?: PatientUpdateOneRequiredWithoutVisitationsNestedInput
-    notes?: NoteUpdateManyWithoutVisitationNestedInput
+    report?: ReportUpdateManyWithoutVisitationNestedInput
   }
 
   export type VisitationUncheckedUpdateWithoutDoctorInput = {
@@ -9626,9 +9670,10 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
-    notes?: NoteUncheckedUpdateManyWithoutVisitationNestedInput
+    report?: ReportUncheckedUpdateManyWithoutVisitationNestedInput
   }
 
   export type VisitationUncheckedUpdateManyWithoutDoctorInput = {
@@ -9638,29 +9683,30 @@ export namespace Prisma {
     diagnosis?: NullableStringFieldUpdateOperationsInput | string | null
     prescription?: NullableStringFieldUpdateOperationsInput | string | null
     followUpDate?: NullableDateTimeFieldUpdateOperationsInput | Date | string | null
+    notes?: NullableStringFieldUpdateOperationsInput | string | null
     createdAt?: DateTimeFieldUpdateOperationsInput | Date | string
     updatedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type NoteCreateManyVisitationInput = {
+  export type ReportCreateManyVisitationInput = {
     id?: string
     content: string
     uploadedAt?: Date | string
   }
 
-  export type NoteUpdateWithoutVisitationInput = {
+  export type ReportUpdateWithoutVisitationInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     uploadedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type NoteUncheckedUpdateWithoutVisitationInput = {
+  export type ReportUncheckedUpdateWithoutVisitationInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     uploadedAt?: DateTimeFieldUpdateOperationsInput | Date | string
   }
 
-  export type NoteUncheckedUpdateManyWithoutVisitationInput = {
+  export type ReportUncheckedUpdateManyWithoutVisitationInput = {
     id?: StringFieldUpdateOperationsInput | string
     content?: StringFieldUpdateOperationsInput | string
     uploadedAt?: DateTimeFieldUpdateOperationsInput | Date | string

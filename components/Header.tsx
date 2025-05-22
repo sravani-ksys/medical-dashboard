@@ -9,8 +9,8 @@ export default function Header() {
     <>
       <div className="flex justify-between items-center p-4">
         <div className='flex items-center'>
-          <div>
-            <img src={'https://play-lh.googleusercontent.com/t-mu8n6kiIgETcvb36-lpp8kdO2tco9k7ETTTPAiFzqPcyvW3xmQu_xACg5qUXJAylk'} className='w-12 h-12 rounded'/>
+          <div className='pr-2'>
+            <img src={'/logo.jpg'} className='w-8 h-8 rounded'/>
           </div>
           <div>
             <span className='text-xl'>
@@ -20,12 +20,11 @@ export default function Header() {
         </div>
         <div>
           {!session ? (
-            // <button onClick={() => signIn("google", { callbackUrl: '/home'})} className ="border border-blue-500 px-4 py-2 rounded-full">
-            <button onClick={() => router.push('/home')} className ="border border-blue-500 px-4 py-2 rounded-full">
+            <button onClick={() => signIn("google", { callbackUrl: '/patients'})} className ="border border-blue-500 px-4 py-2 rounded-full">
           Sign in
         </button>
         ) : (
-        <button onClick={() => signOut()} className="bg-red-500 px-4 py-2 rounded">
+        <button onClick={() => signOut({ callbackUrl: "/" })} className="border border-blue-500 px-4 py-2 rounded-full">
           Sign out
         </button>
         )}
